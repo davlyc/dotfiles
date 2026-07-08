@@ -5,9 +5,11 @@ Personal macOS ricing setup managed with [GNU Stow](https://www.gnu.org/software
 ## Gallery
 
 <div align="center">
-  <img src="screenshots/Page_1" alt="one" width="400"/>
-  <img src="screenshots/Page_2" alt="two" width="400"/>
-  <img src="screenshots/Page_3" alt="three" width="400"/>
+  <img src="screenshots/desktop.png" alt="Desktop" width="800"/>
+  <br/><br/>
+  <img src="screenshots/neovim.png" alt="Neovim" width="800"/>
+  <br/><br/>
+  <img src="screenshots/terminal.png" alt="Terminal" width="800"/>
 </div>
 
 ## Stack
@@ -29,16 +31,6 @@ Personal macOS ricing setup managed with [GNU Stow](https://www.gnu.org/software
 | Music | Spotify + [spicetify](https://spicetify.app/) |
 
 All configs share a cohesive dark palette with **day/night theme switching** (warm peach/orange by day, deep red/crimson by night).
-
-## Gallery
-
-<div align="center">
-  <img src="screenshots/desktop.png" alt="Desktop" width="800"/>
-  <br/><br/>
-  <img src="screenshots/neovim.png" alt="Neovim" width="800"/>
-  <br/><br/>
-  <img src="screenshots/terminal.png" alt="Terminal" width="800"/>
-</div>
 
 ## Installation
 
