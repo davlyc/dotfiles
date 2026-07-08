@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOUR=$(date +%H)
-CONFIG=~/.config/btop/btop.conf
+CONFIG=$(perl -MCwd -e 'print Cwd::abs_path(shift)' ~/.config/btop/btop.conf)
 
 if [ "$HOUR" -ge 6 ] && [ "$HOUR" -lt 18 ]; then
   THEME=pokedex-day

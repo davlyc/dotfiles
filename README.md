@@ -30,6 +30,16 @@ Personal macOS ricing setup managed with [GNU Stow](https://www.gnu.org/software
 
 All configs share a cohesive dark palette with **day/night theme switching** (warm peach/orange by day, deep red/crimson by night).
 
+## Gallery
+
+<div align="center">
+  <img src="screenshots/desktop.png" alt="Desktop" width="800"/>
+  <br/><br/>
+  <img src="screenshots/neovim.png" alt="Neovim" width="800"/>
+  <br/><br/>
+  <img src="screenshots/terminal.png" alt="Terminal" width="800"/>
+</div>
+
 ## Installation
 
 ```bash
