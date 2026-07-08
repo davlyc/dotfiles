@@ -2,6 +2,14 @@
 
 Personal macOS ricing setup managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
+## Gallery
+
+<div align="center">
+  <img src="screenshots/Page_1" alt="one" width="400"/>
+  <img src="screenshots/Page_2" alt="two" width="400"/>
+  <img src="screenshots/Page_3" alt="three" width="400"/>
+</div>
+
 ## Stack
 
 | Category | Tool |
