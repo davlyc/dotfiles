@@ -1,0 +1,152 @@
+{
+	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/logo.png",
+        "type": "kitty-icat",
+    "width": 30,
+    "height": 22,
+    "padding": {
+        "top": 0,
+        "right": 4,
+        "bottom": 0,
+    },
+    },
+    "display": {
+        "separator": " │ ",
+        "color": {
+            "keys": "red",
+            "title": "red"
+        }
+    },
+    "library": {
+        "padding": {
+            "left": 0
+        }
+    },
+    "modules": [
+	{
+            "type": "custom",
+            "format": "┌─────────────────────────── POKÉDEX OS v2.0 ─────────────────────────┐"
+        },
+        {
+            "type": "custom",
+            "format": "│  TRAINER DATA                                                       │"
+        },
+        {
+            "type": "custom",
+            "format": "├─────────────────────────────────────────────────────────────────────┤"
+        },
+        {
+            "type": "os",
+            "key": "│  DEX#001 OS    ",
+            "keyColor": "red"
+        },
+        {
+            "type": "host",
+            "key": "│  DEX#002 HOST  ",
+            "keyColor": "red"
+        },
+        {
+            "type": "kernel",
+            "key": "│  DEX#003 KRNL  ",
+            "keyColor": "red"
+        },
+        {
+            "type": "uptime",
+            "key": "│  DEX#004 UP    ",
+            "keyColor": "red"
+        },
+        {
+            "type": "shell",
+            "key": "│  DEX#005 SHELL ",
+            "keyColor": "red"
+        },
+        {
+            "type": "terminal",
+            "key": "│  DEX#006 TERM  ",
+            "keyColor": "red"
+        },
+        {
+            "type": "cpu",
+            "key": "│  DEX#007 CPU   ",
+            "keyColor": "red",
+        },
+        {
+            "type": "gpu",
+            "key": "│  DEX#008 GPU   ",
+            "keyColor": "red"
+        },
+        {
+            "type": "memory",
+            "key": "│  DEX#009 MEM   ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "disk",
+            "key": "│  DEX#010 DISK  ",
+            "keyColor": "yellow",
+            "folders": "/"
+        },
+        {
+            "type": "disk",
+            "key": "│  DEX#011 DATA  ",
+            "keyColor": "yellow",
+            "folders": "/System/Volumes/Data"
+        },
+        {
+            "type": "packages",
+            "key": "│  DEX#012 PKG   ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "processes",
+            "key": "│  DEX#013 PROC  ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "display",
+            "key": "│  DEX#014 DISP  ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "command",
+            "key": "│  DEX#015 WORD  ",
+            "keyColor": "yellow",
+            "outputColor": "green",
+            "text": "/Users/davinyonathan/.config/fastfetch/random-verse.sh pick",
+            "format": "{result}",
+            "parallel": false
+        },
+        {
+            "type": "command",
+            "key": "│  DEX#016 CONT  ",
+            "keyColor": "yellow",
+            "outputColor": "green",
+            "text": "/Users/davinyonathan/.config/fastfetch/random-verse.sh 2",
+            "format": "{result}",
+            "parallel": false
+        },
+        {
+            "type": "command",
+            "key": "│  DEX#017 CONT  ",
+            "keyColor": "yellow",
+            "outputColor": "green",
+            "text": "/Users/davinyonathan/.config/fastfetch/random-verse.sh 3",
+            "format": "{result}",
+            "parallel": false
+        },
+        {
+            "type": "custom",
+            "format": "├────────────────────────────────────────────────────────────────────┤"
+        },
+        {
+            "type": "colors",
+            "key": "│  PALETTE       ",
+            "symbol": "circle"
+        },
+        {
+            "type": "custom",
+            "format": "└────────────────────────────────────────────────────────────────────┘"
+        }
+    ]
+ }

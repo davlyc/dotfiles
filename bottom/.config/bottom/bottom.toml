@@ -1,0 +1,20 @@
+[flags]
+# Use the "basic" look to match your screenshot's clean lines
+group_processes = true
+case_sensitive = false
+dot_marker = true
+
+[colors]
+# Mapping your palette dots
+table_header_color = "#f8d2a6" # Peach
+all_cpu_color = "#ff8c00"      # Orange
+avg_cpu_color = "#ff757f"      # Coral
+ram_color = "#ff8c00"          # Orange
+swap_color = "#ff757f"         # Coral
+rx_color = "#73daca"           # Mint
+tx_color = "#ff8c00"           # Orange
+border_color = "#4d4d4d"       # Grey
+highlighted_border_color = "#ff8c00" # Orange
+text_color = "#f8d2a6"         # Peach
+graph_color = "#f8d2a6"        # Peach
+cursor_color = "#ff8c00"       # Orange

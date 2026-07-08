@@ -1,0 +1,261 @@
+#!/bin/bash
+
+# 1. SETUP COLORS
+BAR_COLOR=0xff1a1b26
+PILL_BG=0xcc000000
+ACCENT=0xffFF8080
+YELLOW=0xffFFCFA8
+FG=0xffCCCCCC
+DIM=0xff505050
+
+# 2. GLOBAL BAR SETTINGS
+sketchybar --bar \
+  height=36 \
+  position=top \
+  color=0x00000000 \
+  border_width=0 \
+  padding_left=10 \
+  padding_right=10 \
+  blur_radius=20
+
+# 3. DEFAULTS (Restored for Nerd Font Icons)
+sketchybar --default \
+  icon.font="JetBrainsMono Nerd Font:Bold:14.0" \
+  label.font="JetBrainsMono Nerd Font:Bold:12.0" \
+  icon.color=$ACCENT \
+  label.color=$FG \
+  label.padding_left=4 \
+  label.padding_right=8 \
+  icon.padding_left=10 \
+  icon.padding_right=4 \
+  background.drawing=off \
+  background.corner_radius=0 \
+  background.height=26
+
+# 4. LEFT ITEMS
+# Jesus Logo
+sketchybar --add item cross_logo left \
+  --set cross_logo label="†" \
+  label.padding_left=0 \
+  icon.padding_left=4 \
+  icon.padding_right=4 \
+  label.padding_right=9 \
+  label.color=$YELLOW
+
+sketchybar --add item jesus_spacer1 left \
+  --set jesus_spacer1 icon=" " width=6
+
+sketchybar --add item keyboard_logo left \
+  --set keyboard_logo label="JESUS <3 U" \
+  label.color=0xffff5733 \
+  label.font="JetBrainsMono Nerd Font:Bold:14.0" \
+  icon.padding_left=0 \
+  update_freq=1 \
+  script="$CONFIG_DIR/items/keyboard_source.sh" \
+  --subscribe keyboard_logo input_change
+
+sketchybar --add bracket cross_bracket \
+  cross_logo \
+  --set cross_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --add item jesus_spacer2 left \
+  --set jesus_spacer2 icon=" " width=6
+
+sketchybar --add bracket keyboard_bracket \
+  keyboard_logo \
+  --set keyboard_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+# Spaces (1-5)
+for i in 1 2 3 4 5; do
+  sketchybar --add space space.$i left \
+    --set space.$i associated_space=$i icon=$i \
+    icon.color=$DIM \
+    label.drawing=off \
+    icon.padding_left=5 \
+    icon.padding_right=5 \
+    icon.highlight_color=$YELLOW \
+    script="sketchybar --set space.\$i icon.color=\$([ \$SELECTED = true ] && echo $YELLOW || echo $DIM)"
+done
+
+sketchybar --add bracket spaces_bracket '/space\..*/' \
+  --set spaces_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --add item left_spacer left \
+  --set left_spacer icon=" " width=6
+
+# Spotify Media
+sketchybar --add item media left \
+  --set media icon="" \
+  icon.color=0xff1ed760 \
+  icon.padding_left=10 \
+  icon.padding_right=8 \
+  label.padding_left=0 \
+  label.padding_right=10 \
+  label.max_chars=55 \
+  label.color=0xffffffff \
+  update_freq=3 \
+  script="$CONFIG_DIR/plugins/spotify.sh" \
+  --subscribe media media_change mouse.clicked
+
+sketchybar --add bracket media_bracket \
+  media \
+  --set media_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+# 5. CENTER ITEM (Clock)
+sketchybar --add item clock center \
+  --set clock update_freq=1 icon="" icon.color=$YELLOW \
+  script="sketchybar --set clock label=\"\$(date '+%d %b %H:%M:%S')\""
+
+sketchybar --add bracket clock_bracket clock \
+  --set clock_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  icon.padding_left=4 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+# 6. RIGHT ITEMS (Hardware & Network)
+
+sketchybar --add graph memory right 50 \
+  --set memory icon="" icon.color=$YELLOW \
+  graph.color=$YELLOW \
+  graph.fill_color=0x33FFCFA8 \
+  background.drawing=on \
+  background.height=24 \
+  background.color=0x00000000 \
+  update_freq=10 \
+  script="$CONFIG_DIR/plugins/memory.sh" \
+  --subscribe memory mouse.clicked
+
+sketchybar --add graph cpu right 50 \
+  --set cpu icon="" icon.color=$ACCENT \
+  graph.color=$ACCENT \
+  graph.fill_color=0x33FF8080 \
+  background.drawing=on \
+  background.height=24 \
+  background.color=0x00000000 \
+  update_freq=5 \
+  script="$CONFIG_DIR/plugins/cpu.sh"
+
+sketchybar --add bracket system_bracket \
+  memory cpu \
+  --set system_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --add item right_spacer_1 right \
+  --set right_spacer_1 icon=" " width=6
+
+sketchybar --add item battery right \
+  --set battery update_freq=60 \
+  script="$CONFIG_DIR/battery.sh" \
+  icon.padding_left=6 \
+  --subscribe battery power_source_change \
+  --subscribe battery mouse.clicked
+
+sketchybar --add item charging right \
+  --set charging icon="" icon.color=$YELLOW \
+  padding_right=0 \
+  label.padding_right=0 \
+  icon.padding_right=0 \
+  drawing=off
+
+sketchybar --add bracket power_bracket \
+  charging battery \
+  --set power_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --add item right_spacer_2 right \
+  --set right_spacer_2 icon=" " width=6
+
+sketchybar --add item network_up right \
+  --set network_up icon="▲" icon.color=$ACCENT \
+  icon.font="JetBrainsMono Nerd Font:Bold:10.0" \
+  label.font="JetBrainsMono Nerd Font:Bold:10.0" \
+  icon.padding_left=0 \
+  update_freq=4 \
+  script="$CONFIG_DIR/plugins/network.sh"
+
+sketchybar --add item network_down right \
+  --set network_down icon="▼" icon.color=$YELLOW \
+  icon.font="JetBrainsMono Nerd Font:Bold:10.0" \
+  label.font="JetBrainsMono Nerd Font:Bold:10.0" \
+  update_freq=4 \
+  script="$CONFIG_DIR/plugins/network.sh"
+
+sketchybar --add item network_wifi right \
+  --set network_wifi icon="" icon.color=$YELLOW \
+  icon.padding_right=0 \
+  label.drawing=no \
+  click_script="open x-apple.systempreferences:com.apple.preference.network"
+
+sketchybar --add item right_spacer_3 right \
+  --set right_spacer_3 icon=" " width=6
+
+sketchybar --add item warp_status right \
+  --set warp_status icon="󰖂" \
+  update_freq=2 \
+  icon.padding_right=0 \
+  label.padding_right=15 \
+  script="$CONFIG_DIR/items/warp_status.sh" \
+  --subscribe warp_status mouse.clicked
+
+sketchybar --add bracket net_bracket \
+  network_up network_down network_wifi \
+  --set net_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --add item network_vpn_spacer right \
+  --set network_vpn_spacer icon=" " width=6
+
+sketchybar --add bracket vpn_bracket \
+  warp_status \
+  --set vpn_bracket \
+  background.drawing=on \
+  background.color=$PILL_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.padding_left=6 \
+  background.padding_right=6
+
+sketchybar --update

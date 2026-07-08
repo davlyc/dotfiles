@@ -1,0 +1,38 @@
+# This ensures btm doesn't take up half the screen when you're coding
+#yabai -m rule --add title="System Monitor" manage=off grid=4:4:1:1:2:2
+#
+# Load the scripting addition for smooth resizing
+sudo yabai --load-sa
+
+yabai -m config layout bsp
+yabai -m config window_placement second_child
+
+yabai -m config layout bsp
+yabai -m config window_gap 10
+yabai -m config top_padding 35
+yabai -m config bottom_padding 5
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+
+# 3. Focus follow mouse (optional but popular for devs)
+yabai -m config focus_follows_mouse off
+
+# ─────────── MOUSE CONTROL ───────────
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+
+# ─────────── AUTO-FLOAT RULES ───────────
+yabai -m rule --add app="Calculator" manage=off
+yabai -m rule --add app="System Settings" manage=off
+yabai -m rule --add app="System Information" manage=off
+yabai -m rule --add app="About This Mac" manage=off
+yabai -m rule --add app="Screen Shot*" manage=off
+yabai -m rule --add app="QuickTime Player" manage=off
+yabai -m rule --add app="Dictionary" manage=off
+yabai -m rule --add app="Font Book" manage=off
+yabai -m rule --add app="ColorSync Utility" manage=off
+yabai -m rule --add app="Software Update" manage=off
+yabai -m rule --add app="Microsoft Word" manage=off
+yabai -m rule --add app="Obsidian" manage=off
+yabai -m rule --add app="Spotify" manage=off
