@@ -83,3 +83,9 @@ dotfiles/
 ├── install.sh
 └── README.md
 ```
+If there are any bugs, let me know
+
+## Editor's Note
+- The theme should switch between day (orange) and night (red), but so far you can only do this manually
+-
+
