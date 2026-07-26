@@ -2,7 +2,8 @@
 
 Personal macOS ricing setup managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-Thanks @Kazekarui for the help 🙏
+Thanks [@Kazekarui](https://github.com/Kazekarui)
+ for the help 🙏
 
 ## Gallery
 
